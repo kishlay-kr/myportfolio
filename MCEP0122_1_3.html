@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		#headd{
+			display: flex;
+			position: absolute;
+			background-color: lightblue;
+			width: 40%;
+			height: 10%;
+			left: 400px;	
+			justify-content: center;
+			align-items: center;
+		}
+
+		.col{
+			display:flex;
+			flex-direction:column;
+		}
+		#a {background-color: pink;
+			position: absolute;
+			left: 400px;
+			width: 11%;
+			top: 11%;
+			height: 40%;
+			align-self: center;
+		}
+		#b{background-color: lightgreen;
+			position: absolute;
+			left: 400px;
+			width: 11%;
+			top: 51%;
+			height: 10%;
+			align-self: center;
+		}
+
+		#c{ background-color: #e1b74d;
+			position: absolute;
+			left: 568px;
+			width: 29%;
+			top: 11%;
+			height: 30%;
+			justify-content: center;
+
+		}
+		#d{background-color: tomato;
+			position: absolute;
+			left: 568px;
+			width: 29%;
+			top: 41%;
+			height: 20%;
+			justify-content: center;
+
+		}
+
+		#row{
+			display: flex;
+			position: absolute;
+			left: 400px;
+			right: 100px;
+			height: 10%;
+		
+			top: 61%;
+
+		}
+		#row div{
+			width: 29.6%;
+			align-items: center;
+			justify-content: center;	
+		}
+		#foot{
+			position: absolute;
+			top: 70%;
+			background-color: #e1b74d;
+			left: 400px;
+			width: 39.4%;
+			text-align: center;
+			height: 10%;
+			padding: 4px;
+
+		}
+	</style>
+</head>
+<body>
+<div title="header" id="headd">Header</div>
+
+<div class="col">
+	<div id="a" align="center">Hero</div>
+	<div id="b" align="center">Sidebar</div>
+</div>
+<div class ="col">
+	<div id="c" align="center" >Main Content</div>
+	<div id="d" align="center" >Extra</div>
+</div>
+<div id="row">
+	<div style="background-color: darkgreen; text-align: center; " >Images</div>
+	<div style="background-color: pink ;text-align:center;">Posts</div>
+</div>
+<div id="foot">Footer</div>
+</body>
+</html>
