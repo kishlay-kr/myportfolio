@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		var channelName = 'CokeStudioPk';  
+var vidHeight = 400;  
+var vidWidth = 500;  
+var vidMaxResult = 20; // Maximum can be 50
+  
+$(document).ready(function () {  
+    $.get("https://www.googleapis.com/youtube/v3/channels", {  
+        part: 'contentDetails',  
+        forUsername: channelName,  
+        key: 'AIzaSyBdCFUd3EjgAzYRJWFpwHt-yLhFSQ-whJA' //Browser API Key  
+    },  
+        function (data) {  
+            $.each(data.items, function (i, item) {  
+                console.log(item); // See in Browser Console  
+                pid = item.contentDetails.relatedPlaylists.uploads;  
+                getVideos(pid);  
+            })  
+        }  
+        );  
+    function getVideos(pid)  
+    {  
+        $.get("https://www.googleapis.com/youtube/v3/playlistItems", {  
+            part: 'snippet',  
+            maxResults: vidMaxResult,  
+            playlistId:pid,  
+            key: 'AIzaSyBdCFUd3EjgAzYRJWFpwHt-yLhFSQ-whJA' //Browser API Key  
+        },  
+       function (data) {  
+           var outputVideo;  
+           $.each(data.items, function (i, item) {  
+               console.log(item); // See in Browser Console  
+               vidId = item.snippet.resourceId.videoId;  
+               outputVideo = '<li><iframe height="' + vidHeight + '" width="' + vidWidth + '" src=\"//www.youtube.com/embed/' + vidId + '"> </iframe></li>';  
+  
+               //Append to result list  
+               $('#result').append(outputVideo);  
+           })  
+       }  
+       );  
+    }  
+}); 
+	</script>
+
+
+	<style>
+		body{
+			background-color: #2C3539;
+		}
+		h1{
+			color:white;
+		}
+		#container {  
+	   	width: 800px;  
+	    height: auto;  
+	    overflow: auto;  
+	    background: #fff;  
+	    padding: 15px;  }
+		
+	</style>
+</head>
+<body>
+	 <div id="container">  
+        <h1>You tube vidoes</h1>  
+        <ol id="result">  
+        </ol>  
+    </div> 
+	
+</body>
+</html>
